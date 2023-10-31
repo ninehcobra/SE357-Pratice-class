@@ -1,0 +1,78 @@
+@startuml
+class User {
+  - userId: int
+  - name: string
+  - email: string
+  - password: string
+  + browseCourses(): void
+  + enrollInCourse(courseId: int): void
+}
+
+class Student {
+  - studentId: int
+  - coursesEnrolled: List<Course>
+  + accessLessonContent(lessonId: int): void
+  + takeQuiz(quizId: int): void
+  + participateInForum(forumId: int): void
+}
+
+class Teacher {
+  - teacherId: int
+  + manageCourses(): void
+  + createLesson(courseId: int): void
+  + createQuiz(courseId: int): void
+  + moderateForum(forumId: int): void
+}
+
+class Admin {
+  - adminId: int
+  + manageUsers(): void
+}
+
+class Course {
+  - courseId: int
+  - courseName: string
+  - lessons: List<Lesson>
+  - quizzes: List<Quiz>
+  - forum: Forum
+}
+
+class Lesson {
+  - lessonId: int
+  - content: string
+}
+
+class Quiz {
+  - quizId: int
+  - questions: List<Question>
+}
+
+class Forum {
+  - forumId: int
+  - discussions: List<Discussion>
+}
+
+class Question {
+  - questionId: int
+  - text: string
+  - options: List<string>
+  - correctAnswer: string
+}
+
+class Discussion {
+  - postId: int
+  - user: User
+  - content: string
+}
+
+User --|> Student
+User --|> Teacher
+User --|> Admin
+Student --|> Course
+Teacher --|> Course
+Course --|> Lesson
+Course --|> Quiz
+Course --|> Forum
+Quiz --|> Question
+Forum --|> Discussion
+@enduml
