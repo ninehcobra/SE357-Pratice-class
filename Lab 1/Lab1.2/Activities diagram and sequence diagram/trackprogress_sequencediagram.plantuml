@@ -1,0 +1,21 @@
+@startuml
+actor User as User
+participant "System" as System
+database Database as DB
+
+User -> System: Selects "Track Progress"
+activate System
+
+alt User is logged in
+  System -> DB: Retrieve user's progress data
+  activate DB
+  DB --> System: User's progress data
+  deactivate DB
+
+  System --> User: Display user's progress information
+else User is not logged in
+  System --> User: Redirect to login page
+end
+
+deactivate System
+@enduml

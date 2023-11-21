@@ -1,0 +1,11 @@
+@startuml
+start
+:User selects a course to view details;
+if (Course exists?) then (Yes)
+  :System retrieves course details;
+  :Display course details to user;
+else (No)
+  :Display message: Course not found;
+endif
+stop
+@enduml

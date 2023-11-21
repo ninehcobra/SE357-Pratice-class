@@ -1,0 +1,15 @@
+@startuml
+start
+:User selects "Track Progress";
+if (User is logged in?) then (Yes)
+  :System retrieves user's progress data;
+  if (Progress data available?) then (Yes)
+    :System displays user's progress information;
+  else (No)
+    :Display message: No progress data available;
+  endif
+else (No)
+  :Redirect user to login page;
+endif
+stop
+@enduml

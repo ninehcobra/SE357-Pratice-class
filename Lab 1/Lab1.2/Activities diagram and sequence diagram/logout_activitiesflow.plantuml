@@ -1,0 +1,7 @@
+@startuml
+start
+:User selects "Log Out";
+:System clears user session and authentication data;
+:Redirect user to the home page;
+stop
+@enduml

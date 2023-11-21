@@ -1,0 +1,16 @@
+@startuml
+actor Instructor as Instructor
+participant "System" as System
+database Database as DB
+
+Instructor -> System: Selects "View Course List"
+activate System
+
+System -> DB: Retrieve instructor's courses
+activate DB
+DB --> System: List of instructor's courses
+deactivate DB
+
+System --> Instructor: Display list of courses
+deactivate System
+@enduml

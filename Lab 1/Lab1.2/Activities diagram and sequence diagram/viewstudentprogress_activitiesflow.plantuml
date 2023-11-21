@@ -1,0 +1,7 @@
+@startuml
+start
+:Instructor selects "View Student Progress";
+:System retrieves student progress data;
+:System displays student progress data;
+stop
+@enduml

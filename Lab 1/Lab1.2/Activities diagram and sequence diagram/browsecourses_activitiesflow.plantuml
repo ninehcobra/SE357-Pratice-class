@@ -1,0 +1,15 @@
+@startuml
+start
+:User selects "Browse Courses" option;
+if (User is logged in?) then (Yes)
+  :System retrieves list of available courses;
+  if (Courses available?) then (Yes)
+    :Display list of courses to user;
+  else (No)
+    :Display message: No courses available;
+  endif
+else (No)
+  :Redirect user to login page;
+endif
+stop
+@enduml

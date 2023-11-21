@@ -1,0 +1,21 @@
+@startuml
+start
+:User selects a course to access lectures;
+if (Course is enrolled?) then (Yes)
+  :System retrieves lectures for the course;
+  if (Lectures available?) then (Yes)
+    :Display list of lectures to user;
+    :User selects a lecture to access;
+    if (Lecture is accessible?) then (Yes)
+      :System displays lecture content to user;
+    else (No)
+      :Display error message: Lecture not accessible;
+    endif
+  else (No)
+    :Display message: No lectures available for the course;
+  endif
+else (No)
+  :Display error message: User not enrolled in the course;
+endif
+stop
+@enduml

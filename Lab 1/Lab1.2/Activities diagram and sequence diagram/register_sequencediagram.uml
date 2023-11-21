@@ -1,0 +1,28 @@
+@startuml
+actor User as User
+participant "System" as System
+database Database as DB
+
+User -> System: Enters registration details
+activate System
+
+System -> System: Validate registration details
+alt Details are valid
+  System -> DB: Check uniqueness of details
+  activate DB
+  DB --> System: Details uniqueness
+  deactivate DB
+  alt Details are unique
+    System -> DB: Create user account
+    activate DB
+    DB --> System: User account created
+    deactivate DB
+    System --> User: Redirect to login page
+  else Details are not unique
+    System --> User: Display error message: User already exists
+  end
+else Details are not valid
+  System --> User: Display error message: Invalid details
+end
+deactivate System
+@enduml

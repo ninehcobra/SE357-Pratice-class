@@ -1,0 +1,16 @@
+@startuml
+start
+:User enters registration details;
+if (Details are valid?) then (Yes)
+  :System validates details;
+  if (Details are unique?) then (Yes)
+    :System creates user account;
+    :Redirect to login page;
+  else (No)
+    :Display error: User already exists;
+  endif
+else (No)
+  :Display error: Invalid details;
+endif
+stop
+@enduml

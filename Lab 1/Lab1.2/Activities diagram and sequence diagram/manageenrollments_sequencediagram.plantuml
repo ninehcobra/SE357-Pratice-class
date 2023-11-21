@@ -1,0 +1,35 @@
+@startuml
+actor Instructor as Instructor
+participant "System" as System
+database Database as DB
+participant "Student" as Student
+
+Instructor -> System: Selects "Manage Enrollments"
+activate System
+
+System -> DB: Retrieve enrolled students data
+activate DB
+DB --> System: List of enrolled students
+deactivate DB
+
+System -> Instructor: Displays list of enrolled students
+Instructor -> System: Selects a student
+activate Student
+
+alt Modify Enrollment
+  Instructor -> System: Requests to modify student's enrollment
+  System -> Student: Displays student's enrollment data
+  Instructor -> System: Modifies student's enrollment
+  System -> DB: Update student's enrollment in the database
+  DB --> System: Confirmation of enrollment modification
+  System --> Instructor: Notify: Enrollment modified successfully
+else Remove Student
+  Instructor -> System: Requests to remove student from the course
+  System -> DB: Remove student from the course in the database
+  DB --> System: Confirmation of student removal
+  System --> Instructor: Notify: Student removed from the course
+end
+
+deactivate Student
+deactivate System
+@enduml

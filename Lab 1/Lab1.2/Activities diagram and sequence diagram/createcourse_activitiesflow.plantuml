@@ -1,0 +1,12 @@
+@startuml
+start
+:Instructor selects "Create Course";
+: System prompts for course details;
+if (Instructor provides details) then (Yes)
+  : System creates the course;
+  : System notifies instructor: Course created successfully;
+else (No)
+  : System notifies instructor: Course creation failed, missing details;
+endif
+stop
+@enduml

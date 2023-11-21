@@ -1,0 +1,16 @@
+@startuml
+start
+:Instructor selects "Manage Enrollments";
+:System displays list of enrolled students;
+:Instructor selects a student to manage enrollment;
+if (Instructor wants to modify enrollment) then (Yes)
+  :System allows instructor to modify student's enrollment;
+  :System updates enrollment data;
+  :System notifies instructor: Enrollment modified successfully;
+else (No)
+  :Instructor selects "Remove Student";
+  :System removes student from the course;
+  :System notifies instructor: Student removed from the course;
+endif
+stop
+@enduml

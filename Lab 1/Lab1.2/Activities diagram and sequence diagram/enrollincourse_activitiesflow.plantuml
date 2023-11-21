@@ -1,0 +1,20 @@
+@startuml
+start
+:User selects a course to enroll in;
+if (Course is available?) then (Yes)
+  if (User is logged in?) then (Yes)
+    :System validates user enrollment eligibility;
+    if (User is eligible?) then (Yes)
+      :System enrolls user in the course;
+      :Display success message: Enrollment successful;
+    else (No)
+      :Display error message: User not eligible to enroll;
+    endif
+  else (No)
+    :Redirect user to login page;
+  endif
+else (No)
+  :Display error message: Course not available for enrollment;
+endif
+stop
+@enduml

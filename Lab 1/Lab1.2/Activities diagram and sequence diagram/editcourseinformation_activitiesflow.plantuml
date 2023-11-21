@@ -1,0 +1,12 @@
+@startuml
+start
+:Instructor selects "Edit Course Information";
+:System prompts for course details;
+if (Instructor provides new details) then (Yes)
+  :System updates the course information;
+  :System notifies instructor: Course information updated successfully;
+else (No)
+  :System notifies instructor: No changes made to course information;
+endif
+stop
+@enduml

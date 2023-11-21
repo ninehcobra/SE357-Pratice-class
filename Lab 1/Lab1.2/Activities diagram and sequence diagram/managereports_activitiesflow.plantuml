@@ -1,0 +1,17 @@
+@startuml
+start
+:Admin selects "Manage Reports";
+:System retrieves report data;
+:System displays list of reports;
+:Admin selects a report to manage;
+if (Admin wants to view report) then (Yes)
+  :System displays the selected report details;
+else if (Admin wants to download report) then (Yes)
+  :System generates a downloadable version of the report;
+  :Admin downloads the report;
+else if (Admin wants to delete report) then (Yes)
+  :System deletes the selected report;
+  :System notifies admin: Report deleted successfully;
+endif
+stop
+@enduml

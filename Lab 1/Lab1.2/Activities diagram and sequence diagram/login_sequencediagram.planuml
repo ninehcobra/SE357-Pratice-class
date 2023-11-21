@@ -1,0 +1,34 @@
+@startuml
+actor User as User
+participant "System" as System
+database Database as DB
+
+User -> System: Enters username and password
+activate System
+
+System -> DB: Retrieve user credentials
+activate DB
+
+DB --> System: User credentials
+deactivate DB
+
+alt Valid Credentials
+System -> System: Authenticate user
+else Invalid Credentials
+System --> User: Authentication failed
+deactivate System
+User -> User: Retry login
+activate User
+end
+
+alt Authentication Successful
+System --> User: Redirect to dashboard
+deactivate System
+User -> System: Access dashboard and features
+activate System
+else Authentication Failed
+User -> User: Account locked, contact admin
+activate User
+end
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+start
+:User selects a quiz to take;
+if (Quiz is available?) then (Yes)
+  :System displays the quiz questions to user;
+  :User answers the quiz questions;
+  if (All questions answered?) then (Yes)
+    :System evaluates user's answers;
+    :Display quiz results to user;
+  else (No)
+    :Display message: Please answer all questions before submitting;
+  endif
+else (No)
+  :Display error message: Quiz not available;
+endif
+stop
+@enduml

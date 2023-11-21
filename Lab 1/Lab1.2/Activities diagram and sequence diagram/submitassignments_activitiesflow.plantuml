@@ -1,0 +1,17 @@
+@startuml
+start
+:User selects an assignment to submit;
+if (Assignment is available?) then (Yes)
+  :System displays submission form to user;
+  :User fills out the submission form;
+  if (Form is complete?) then (Yes)
+    :System receives and saves the submitted assignment;
+    :Display success message: Assignment submitted successfully;
+  else (No)
+    :Display error message: Incomplete form, please fill out all required fields;
+  endif
+else (No)
+  :Display error message: Assignment not available for submission;
+endif
+stop
+@enduml

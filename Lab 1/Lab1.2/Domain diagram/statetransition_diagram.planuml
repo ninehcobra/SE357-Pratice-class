@@ -1,0 +1,44 @@
+@startuml
+hide empty description
+
+[*] --> Unregistered
+
+state Unregistered {
+  [*] --> NotLoggedIn
+  NotLoggedIn --> LoggedIn : Log In
+  NotLoggedIn --> Registering : Register
+}
+
+state LoggedIn {
+  LoggedIn --> CourseSelection : Select Course
+}
+
+state Registering {
+  Registering --> Registered : Complete Registration
+}
+
+state CourseSelection {
+  CourseSelection --> CourseInfo : View Course Details
+  CourseSelection --> Enrolled : Enroll in Course
+  state Enrolled {
+    Enrolled --> AccessLectures : Access Lectures
+    Enrolled --> CourseInfo : View Course Details
+  }
+}
+
+state CourseInfo {
+  CourseInfo --> CourseSelection : Back
+}
+
+state AccessLectures {
+  AccessLectures --> CourseInfo : Back to Course
+}
+
+state Registered {
+  Registered --> LoggedIn : Log In
+}
+
+Unregistered --> NotLoggedIn : Visit Site
+AccessLectures --> CourseInfo : Exit Lectures
+
+@enduml

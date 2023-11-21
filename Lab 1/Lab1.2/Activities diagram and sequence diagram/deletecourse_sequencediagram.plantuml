@@ -1,0 +1,22 @@
+@startuml
+actor Instructor as Instructor
+participant "System" as System
+database Database as DB
+
+Instructor -> System: Selects "Delete Course"
+activate System
+
+System -> System: Prompt for confirmation
+System -> Instructor: Request confirmation
+activate Instructor
+
+Instructor --> System: Confirms deletion
+System -> DB: Delete course from database
+activate DB
+DB --> System: Confirmation of course deletion
+deactivate DB
+
+System --> Instructor: Notify: Course deleted successfully
+
+deactivate System
+@enduml

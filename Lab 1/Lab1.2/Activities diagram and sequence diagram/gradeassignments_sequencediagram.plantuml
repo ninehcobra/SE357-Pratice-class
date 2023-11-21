@@ -1,0 +1,29 @@
+@startuml
+actor Instructor as Instructor
+participant "System" as System
+database Database as DB
+participant "Assignment" as Assignment
+
+Instructor -> System: Selects "Grade Assignments"
+activate System
+
+System -> DB: Retrieve assignments data to grade
+activate DB
+DB --> System: List of assignments to grade
+deactivate DB
+
+System -> Instructor: Displays list of assignments to grade
+Instructor -> System: Selects an assignment to grade
+activate Assignment
+
+Instructor -> System: Provides assignment grades
+System -> Assignment: Saves assignment grades in the database
+activate DB
+Assignment --> DB: Save grades
+DB --> Assignment: Confirmation of grades saved
+deactivate DB
+System --> Instructor: Notify: Grades saved successfully
+
+deactivate Assignment
+deactivate System
+@enduml

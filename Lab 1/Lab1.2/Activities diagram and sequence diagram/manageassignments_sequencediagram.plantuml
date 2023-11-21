@@ -1,0 +1,42 @@
+@startuml
+actor Instructor as Instructor
+participant "System" as System
+database Database as DB
+participant "Assignment" as Assignment
+
+Instructor -> System: Selects "Manage Assignments"
+activate System
+
+System -> DB: Retrieve assignment data
+activate DB
+DB --> System: List of assignments
+deactivate DB
+
+System -> Instructor: Displays list of assignments
+Instructor -> System: Selects an assignment to manage
+activate Assignment
+
+alt View Assignment
+  Instructor -> System: Requests to view assignment details
+  System -> Assignment: Retrieve assignment details
+  Assignment --> System: Assignment details
+  System --> Instructor: Displays assignment details
+else Edit Assignment
+  Instructor -> System: Requests to edit assignment details
+  System -> Assignment: Retrieve assignment details for editing
+  Assignment --> System: Assignment details
+  System --> Instructor: Displays editable assignment details
+  Instructor -> System: Modifies assignment details
+  System -> DB: Update assignment details in the database
+  DB --> System: Confirmation of assignment modification
+  System --> Instructor: Notify: Assignment modified successfully
+else Delete Assignment
+  Instructor -> System: Requests to delete assignment
+  System -> DB: Delete assignment from the database
+  DB --> System: Confirmation of assignment deletion
+  System --> Instructor: Notify: Assignment deleted successfully
+end
+
+deactivate Assignment
+deactivate System
+@enduml

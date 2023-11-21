@@ -1,0 +1,15 @@
+@startuml
+start
+:User enters username and password;
+if (Credentials are valid?) then (Yes)
+  :Redirect to dashboard;
+else (No)
+  :Display error message and allow user to retry;
+  if (Retry limit reached?) then (Yes)
+    :Lock user account and inform user;
+  else (No)
+    :Allow user to retry;
+  endif
+endif
+stop
+@enduml

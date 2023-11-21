@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Student as "Student"
+
+rectangle "Use Cases" {
+  usecase "Log In" as UC1
+  usecase "Log Out" as UC2
+  usecase "Browse Courses" as UC3
+  usecase "View Course Details" as UC4
+  usecase "Enroll in Course" as UC5
+  usecase "Access Lectures" as UC6
+  usecase "Submit Assignments" as UC7
+  usecase "Take Quizzes" as UC8
+  usecase "View Progress Report" as UC9
+}
+
+Student --> UC1
+Student --> UC2
+Student --> UC3
+Student --> UC4
+Student --> UC5
+Student --> UC6
+Student --> UC7
+Student --> UC8
+Student --> UC9
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+actor Instructor as Instructor
+participant "System" as System
+database Database as DB
+
+Instructor -> System: Selects "Edit Course Information"
+activate System
+
+System -> Instructor: Prompt for new course details
+Instructor -> System: Provides new course details
+activate Instructor
+
+System -> DB: Update course information in the database
+activate DB
+DB --> System: Confirmation of course information update
+deactivate DB
+
+System --> Instructor: Notify: Course information updated successfully
+
+deactivate System
+@enduml

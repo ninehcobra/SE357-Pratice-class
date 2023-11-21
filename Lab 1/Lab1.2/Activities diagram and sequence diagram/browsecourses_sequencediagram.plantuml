@@ -1,0 +1,17 @@
+@startuml
+actor User as User
+participant "System" as System
+database Database as DB
+
+User -> System: Selects "Browse Courses" option
+activate System
+
+System -> DB: Retrieve available courses
+activate DB
+DB --> System: List of available courses
+deactivate DB
+
+System --> User: Display list of available courses
+
+deactivate System
+@enduml

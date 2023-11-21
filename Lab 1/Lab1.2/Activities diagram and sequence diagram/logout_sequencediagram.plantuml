@@ -1,0 +1,13 @@
+@startuml
+actor User as User
+participant "System" as System
+
+User -> System: Selects "Log Out"
+activate System
+
+System -> System: Clear user session and authentication data
+deactivate System
+
+System --> User: Redirect to the home page
+
+@enduml

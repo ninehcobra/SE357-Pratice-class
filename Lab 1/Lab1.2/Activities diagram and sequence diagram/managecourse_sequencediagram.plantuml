@@ -1,0 +1,37 @@
+@startuml
+actor Admin as Admin
+participant "System" as System
+database Database as DB
+participant "Course" as Course
+
+Admin -> System: Selects "Manage Courses"
+activate System
+
+System -> DB: Retrieve course data
+activate DB
+DB --> System: List of courses
+deactivate DB
+
+System -> Admin: Displays list of courses
+Admin -> System: Selects a course to manage
+activate Course
+
+alt Modify Course
+  Admin -> System: Requests to modify course details
+  System -> Course: Retrieve course details
+  Course --> System: Course details
+  System -> Admin: Displays course details
+  Admin -> System: Modifies course details
+  System -> DB: Update course details in the database
+  DB --> System: Confirmation of course modification
+  System --> Admin: Notify: Course modified successfully
+else Delete Course
+  Admin -> System: Requests to delete course
+  System -> DB: Delete course from the database
+  DB --> System: Confirmation of course deletion
+  System --> Admin: Notify: Course deleted successfully
+end
+
+deactivate Course
+deactivate System
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+actor Instructor as Instructor
+participant "System" as System
+database Database as DB
+
+Instructor -> System: Selects "Create Course"
+activate System
+
+System -> Instructor: Prompt for course details
+Instructor -> System: Provides course details
+activate Instructor
+
+System -> DB: Save course details
+activate DB
+DB --> System: Confirmation of course creation
+deactivate DB
+
+System --> Instructor: Notify: Course created successfully
+
+deactivate System
+@enduml

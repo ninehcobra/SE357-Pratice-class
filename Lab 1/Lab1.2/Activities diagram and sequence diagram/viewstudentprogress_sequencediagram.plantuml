@@ -1,0 +1,21 @@
+@startuml
+actor Instructor as Instructor
+participant "System" as System
+database Database as DB
+participant "Student" as Student
+
+Instructor -> System: Selects "View Student Progress"
+activate System
+
+System -> DB: Retrieve student progress data
+activate DB
+DB --> System: Student progress data
+deactivate DB
+
+System -> Instructor: Displays student progress data
+Instructor -> Student: Views own progress data
+
+deactivate Instructor
+deactivate Student
+deactivate System
+@enduml

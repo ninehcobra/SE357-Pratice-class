@@ -1,0 +1,18 @@
+@startuml
+start
+:Instructor selects "Manage Assignments";
+:System retrieves assignment data;
+:System displays list of assignments;
+:Instructor selects an assignment to manage;
+if (Instructor wants to view assignment) then (Yes)
+  :System displays the selected assignment details;
+else if (Instructor wants to edit assignment) then (Yes)
+  :System allows instructor to edit assignment details;
+  :System updates assignment data;
+  :System notifies instructor: Assignment edited successfully;
+else if (Instructor wants to delete assignment) then (Yes)
+  :System deletes the selected assignment;
+  :System notifies instructor: Assignment deleted successfully;
+endif
+stop
+@enduml

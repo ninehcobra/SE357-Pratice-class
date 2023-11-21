@@ -1,0 +1,12 @@
+@startuml
+start
+:Instructor selects "Delete Course";
+:System prompts for confirmation;
+if (Instructor confirms) then (Yes)
+  :System deletes the course;
+  :System notifies instructor: Course deleted successfully;
+else (No)
+  :System notifies instructor: Course deletion canceled;
+endif
+stop
+@enduml

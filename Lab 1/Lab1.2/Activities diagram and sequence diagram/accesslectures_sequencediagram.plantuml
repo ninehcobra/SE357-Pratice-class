@@ -1,0 +1,30 @@
+@startuml
+actor User as User
+participant "System" as System
+database Database as DB
+
+User -> System: Selects a course to access lectures
+activate System
+
+System -> DB: Check if user is enrolled in the course and retrieve lectures
+activate DB
+DB --> System: User enrollment status and list of lectures
+deactivate DB
+
+alt User is enrolled and lectures available
+  System -> System: Display list of lectures to user
+  User -> System: Selects a lecture to access
+  activate System
+
+  System -> DB: Retrieve content of the selected lecture
+  activate DB
+  DB --> System: Lecture content
+  deactivate DB
+
+  System --> User: Display lecture content to user
+else User not enrolled or lectures not available
+  System --> User: Display error message: Unable to access lectures
+end
+
+deactivate System
+@enduml

@@ -1,0 +1,38 @@
+@startuml
+actor Admin as Admin
+participant "System" as System
+database Database as DB
+participant "Report" as Report
+
+Admin -> System: Selects "Manage Reports"
+activate System
+
+System -> DB: Retrieve report data
+activate DB
+DB --> System: List of reports
+deactivate DB
+
+System -> Admin: Displays list of reports
+Admin -> System: Selects a report to manage
+activate Report
+
+alt View Report
+  Admin -> System: Requests to view report details
+  System -> Report: Retrieve report details
+  Report --> System: Report details
+  System --> Admin: Displays report details
+else Download Report
+  Admin -> System: Requests to download report
+  System -> Report: Generate downloadable version of the report
+  Report --> System: Downloadable report
+  System --> Admin: Admin downloads the report
+else Delete Report
+  Admin -> System: Requests to delete report
+  System -> DB: Delete report from the database
+  DB --> System: Confirmation of report deletion
+  System --> Admin: Notify: Report deleted successfully
+end
+
+deactivate Report
+deactivate System
+@enduml

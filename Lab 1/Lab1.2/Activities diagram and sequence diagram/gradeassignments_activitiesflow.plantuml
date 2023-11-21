@@ -1,0 +1,14 @@
+@startuml
+start
+:Instructor selects "Grade Assignments";
+:System displays list of assignments to grade;
+:Instructor selects an assignment to grade;
+:System prompts for assignment grading details;
+if (Instructor provides grades) then (Yes)
+  :System saves assignment grades;
+  :System notifies instructor: Grades saved successfully;
+else (No)
+  :System notifies instructor: No grades provided;
+endif
+stop
+@enduml

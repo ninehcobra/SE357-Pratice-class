@@ -1,0 +1,7 @@
+@startuml
+start
+:Instructor selects "View Course List";
+:System retrieves the list of instructor's courses;
+:System displays the list of courses to the instructor;
+stop
+@enduml

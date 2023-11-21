@@ -1,0 +1,29 @@
+@startuml
+actor User as User
+participant "System" as System
+database Database as DB
+
+User -> System: Selects an assignment to submit
+activate System
+
+System -> System: Display assignment submission form to user
+User -> System: Fills out the submission form
+activate User
+
+System -> User: Verify form completeness
+User --> System: Form completeness status
+
+alt Form is complete
+  System -> DB: Save submitted assignment
+  activate DB
+  DB --> System: Confirmation of assignment submission
+  deactivate DB
+
+  System --> User: Display success message: Assignment submitted successfully
+else Form is incomplete
+  System --> User: Display error message: Incomplete form, please fill out all required fields
+end
+
+deactivate User
+deactivate System
+@enduml

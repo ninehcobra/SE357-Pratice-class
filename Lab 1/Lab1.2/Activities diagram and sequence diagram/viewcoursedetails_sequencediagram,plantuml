@@ -1,0 +1,17 @@
+@startuml
+actor User as User
+participant "System" as System
+database Database as DB
+
+User -> System: Selects a course to view details
+activate System
+
+System -> DB: Retrieve course details
+activate DB
+DB --> System: Course details
+deactivate DB
+
+System --> User: Display course details
+
+deactivate System
+@enduml

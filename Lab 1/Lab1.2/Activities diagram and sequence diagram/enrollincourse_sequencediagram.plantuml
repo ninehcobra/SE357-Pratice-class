@@ -1,0 +1,25 @@
+@startuml
+actor User as User
+participant "System" as System
+database Database as DB
+
+User -> System: Selects a course to enroll in
+activate System
+
+System -> DB: Check course availability and user eligibility
+activate DB
+DB --> System: Course availability and user eligibility status
+deactivate DB
+
+alt Course available and user eligible
+  System -> DB: Enroll user in the course
+  activate DB
+  DB --> System: Enrollment confirmation
+  deactivate DB
+  System --> User: Display success message: Enrollment successful
+else Course not available or user not eligible
+  System --> User: Display error message: Enrollment failed
+end
+
+deactivate System
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+start
+:Admin selects "Manage Instructors";
+:System retrieves instructor data;
+:System displays list of instructors;
+:Admin selects an instructor to manage;
+if (Admin wants to modify instructor) then (Yes)
+  :System allows admin to modify instructor details;
+  :System updates instructor data;
+  :System notifies admin: Instructor modified successfully;
+else (No)
+  :Admin selects "Delete Instructor";
+  :System deletes the instructor;
+  :System notifies admin: Instructor deleted successfully;
+endif
+stop
+@enduml

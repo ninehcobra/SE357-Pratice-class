@@ -1,0 +1,17 @@
+@startuml
+start
+:Admin selects "Manage Courses";
+:System retrieves course data;
+:System displays list of courses;
+:Admin selects a course to manage;
+if (Admin wants to modify course) then (Yes)
+  :System allows admin to modify course details;
+  :System updates course data;
+  :System notifies admin: Course modified successfully;
+else (No)
+  :Admin selects "Delete Course";
+  :System deletes the course;
+  :System notifies admin: Course deleted successfully;
+endif
+stop
+@enduml

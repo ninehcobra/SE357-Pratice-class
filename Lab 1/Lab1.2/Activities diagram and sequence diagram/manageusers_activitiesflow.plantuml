@@ -1,0 +1,16 @@
+@startuml
+start
+:Instructor selects "Manage Users";
+:System displays list of users;
+:Instructor selects a user to manage;
+if (Instructor wants to modify user) then (Yes)
+  :System allows instructor to modify user details;
+  :System updates user data;
+  :System notifies instructor: User modified successfully;
+else (No)
+  :Instructor selects "Delete User";
+  :System deletes the user;
+  :System notifies instructor: User deleted successfully;
+endif
+stop
+@enduml

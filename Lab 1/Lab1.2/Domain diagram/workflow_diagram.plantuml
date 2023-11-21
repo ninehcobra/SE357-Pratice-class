@@ -1,0 +1,28 @@
+@startuml
+|User|
+start
+:Register Account;
+if (Account Accepted?) then (Yes)
+  :Login;
+  if (Select Course?) then (Yes)
+    :Choose Course;
+    if (Course Exists?) then (Yes)
+      :View Course Information;
+      if (Enrolled in Course?) then (Yes)
+        :Access Lectures;
+      else (No)
+        :Enroll in Course;
+        :Access Lectures;
+      endif
+    else (No)
+      :Display Error Message;
+    endif
+  else (No)
+    :Display List of Courses;
+  endif
+else (No)
+  :Display Error Message;
+endif
+|User|
+stop
+@enduml
