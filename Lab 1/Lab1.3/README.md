@@ -45,13 +45,13 @@
 | Track and Manage Progress      | User            |             |             |             |             |             |             |             |             |             |             |
 | Forum Interaction              | Student         |             |             |             |             |             |             |             |             |             |             |
 | Instructor Dashboard           | Instructor      |             |             |             |             |             |             |             |             |             |             |
-| Mobile Responsiveness          | User            |             | R           |             |             |             |             |             |             |             |             |
+| Mobile Responsiveness          | User            |             |             | R           |             |             |             |             |             |             |             |
 | Gamification                   | Student         |             | U           |             |             |             |             |             |             |             |             |
 | Automated Evaluation           | Student         |             |             |             |             |             |             |             |             |             |             |
 | External Integration           | User            |             | R           |             |             |             |             |             |             |             |             |
 | Advanced Search                | User            |             |             |             |             |             |             |             |             |             |             |
-| Real-time Tracking             | Instructor      |             |             |             |             |             |             |             |             |             |             |
-| Video Conferencing             | User            |             |             |             |             |             |             |             |             |             |             |
+| Real-time Tracking             | Instructor      |             | U           |             |             |             |             |             |             |             |             |
+| Video Conferencing             | User            |             |             | R           |             |             |             |             |             |             |             |
 | Peer Review                    | Student         |             | U           |             |             |             |             |             |             |             |             |
 
 
