@@ -18,37 +18,44 @@
 | REQ-014        | Integration with video conferencing tools           | Compatibility: Seamless integration with video tools  | Business Requirements Document | User         | TC-014       | Connect with video conferencing platforms | 2.0             |
 | REQ-015        | Peer review system for assignments                  | Quality Assurance: Enhance assignment evaluation        | User Stories                   | Student      | TC-015       | Implement peer review functionality       | 1.0             |
 
-| **Use Case**                  | **Requirement** | **REQ-001** | **REQ-002** | **REQ-003** | **REQ-004** | **REQ-005** |
-| ----------------------------- | --------------- | ----------- | ----------- | ----------- | ----------- | ----------- |
-| User Registration             | User            | R           |             |             |             |             |
-| Browse Courses                | User            | R           |             |             |             |             |
-| Access Learning Materials     | User            | R           |             | R           |             |             |
-| Take Quizzes                  | User            | R           |             |             | R           |             |
-| Track and Manage Progress     | User            | R           |             |             |             | R           |
-| Forum Interaction             | Student         | U           |             |             |             | R           |
-| Instructor Dashboard          | Instructor      |             |             |             |             | R           |
-| Mobile Responsiveness         | User            | R           |             |             |             |             |
-| Gamification                  | Student         |             |             |             |             | R           |
-| Automated Evaluation          | Student         | U           |             |             |             | R           |
+| **Use Case**                   | **Requirement** | **REQ-001** | **REQ-002** | **REQ-003** | **REQ-004** | **REQ-005** |
+| ------------------------------ | --------------- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| User Registration              | User            | R           |             |             |             | U           |
+| Browse Courses                 | User            | R           |             |             |             |             |
+| Access Learning Materials      | User            | R           |             | R           |             |             |
+| Take Quizzes                   | User            | R           |             |             | R           |             |
+| Track and Manage Progress      | User            | R           |             |             |             | R           |
+| Forum Interaction              | Student         | U           |             |             |             | R           |
+| Instructor Dashboard           | Instructor      |             |             |             |             | R           |
+| Mobile Responsiveness          | User            | R           |             |             |             | R           |
+| Gamification                   | Student         |             |             |             |             | R           |
+| Automated Evaluation           | Student         | U           |             | R           |             |             |
+| External Integration           | User            |             |             | R           |             | R           |
+| Advanced Search                | User            |             | R           |             |             |             |
+| Real-time Tracking             | Instructor      |             | U           |             |             | R           |
+| Video Conferencing             | User            |             |             | R           |             |             |
+| Peer Review                    | Student         | U           |             |             |             | U           |
 
-| **Use Case**                  | **Requirement** | **REQ-006** | **REQ-007** | **REQ-008** | **REQ-009** | **REQ-010** |
-| ----------------------------- | --------------- | ----------- | ----------- | ----------- | ----------- | ----------- |
-| Forum Interaction             | Student         | R           |             |             |             |             |
-| Instructor Dashboard          | Instructor      | U           |             |             |             |             |
-| Mobile Responsiveness         | User            |             |             | R           |             |             |
-| Gamification                  | Student         |             |             | U           |             |             |
-| Automated Evaluation          | Student         |             |             |             |             | R           |
-| External Integration          | User            |             |             |             |             | R           |
-| Advanced Search               | User            |             | R           |             |             |             |
-| Real-time Tracking            | Instructor      |             | U           |             |             |             |
-| Video Conferencing            | User            |             |             | R           |             |             |
-| Peer Review                   | Student         |             |             | U           |             |             |
-| **Use Case**                  | **Requirement** | **REQ-011** | **REQ-012** | **REQ-013** | **REQ-014** | **REQ-015** |
-| External Integration          | User            | R           |             |             |             |             |
-| Advanced Search               | User            |             | R           |             |             |             |
-| Real-time Tracking            | Instructor      |             |             | R           |             |             |
-| Video Conferencing            | User            |             |             |             | R           |             |
-| Peer Review                   | Student         |             |             |             |             | U           |
+| **Use Case**                   | **Requirement** | **REQ-006** | **REQ-007** | **REQ-008** | **REQ-009** | **REQ-010** | **REQ-011** | **REQ-012** | **REQ-013** | **REQ-014** | **REQ-015** |
+| ------------------------------ | --------------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| User Registration              | User            | U           |             | R           |             |             |             |             |             |             |             |
+| Browse Courses                 | User            |             |             | R           |             |             |             |             |             |             |             |
+| Access Learning Materials      | User            |             |             |             |             |             |             |             |             |             |             |
+| Take Quizzes                   | User            |             |             |             |             |             |             |             |             |             |             |
+| Track and Manage Progress      | User            |             |             |             |             |             |             |             |             |             |             |
+| Forum Interaction              | Student         |             |             |             |             |             |             |             |             |             |             |
+| Instructor Dashboard           | Instructor      |             |             |             |             |             |             |             |             |             |             |
+| Mobile Responsiveness          | User            |             | R           |             |             |             |             |             |             |             |             |
+| Gamification                   | Student         |             | U           |             |             |             |             |             |             |             |             |
+| Automated Evaluation           | Student         |             |             |             |             |             |             |             |             |             |             |
+| External Integration           | User            |             | R           |             |             |             |             |             |             |             |             |
+| Advanced Search                | User            |             |             |             |             |             |             |             |             |             |             |
+| Real-time Tracking             | Instructor      |             |             |             |             |             |             |             |             |             |             |
+| Video Conferencing             | User            |             |             |             |             |             |             |             |             |             |             |
+| Peer Review                    | Student         |             | U           |             |             |             |             |             |             |             |             |
+
+
+
 
 
 
