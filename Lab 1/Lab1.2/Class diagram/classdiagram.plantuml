@@ -3,7 +3,7 @@
 !define INTERFACE interface
 
 PACKAGE "Online Learning System" {
-    
+
     ENTITY User {
         + userId: String
         + username: String
@@ -69,20 +69,20 @@ PACKAGE "Online Learning System" {
         + awardBadge(user: User)
     }
 
-    User --|> Course
-    User --|> Assignment
-    User --|> ForumPost
-    User --|> Payment
-    User --|> Badge
+    User --|{ Course : Enrolls
+    User --|{ Assignment : Submits
+    User --|{ ForumPost : Creates
+    User --|{ Payment : Makes
+    User --|{ Badge : Earns
 
-    Admin --|> User
-Admin --|> Instructor
-    Admin --|> Course
+    Admin --|{ User : Manages
+    Admin --|{ Instructor : Manages
+    Admin --|{ Course : Manages
 
-    Instructor --|> Course
-    Instructor --|> Assignment
+    Instructor --|{ Course : Teaches
+    Instructor --|{ Assignment : Grades
 
-    Course --|> ForumPost
+    Course --|{ ForumPost : Has
 
 }
 
