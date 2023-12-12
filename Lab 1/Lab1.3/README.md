@@ -37,7 +37,6 @@
 | REQ-014 (Video Conferencing)                | User                               | User uses video conferencing        | 1. Join virtual meeting                                | -                                  | -                                  | Video session joined                 | Compatible video tools used          | REQ-014                            |
 | REQ-015 (Peer Review)                       | Student                            | Student participates in peer review | 1. Review and evaluate peers' work                    | -                                  | -                                  | Peer reviews completed              | Honest and constructive feedback    | REQ-015                            |
 
-| **Related Requirements**           | REQ-001                      | REQ-002                | REQ-003                             | REQ-004               | REQ-005                           | REQ-006                    | REQ-007                       | REQ-008                       | REQ-009               | REQ-010                     | REQ-011                      | REQ-012                      | REQ-013                    | REQ-014                      | REQ-015                        | REQ-016                  |
 
 ## Requirements Source Traceability Matrix
 
