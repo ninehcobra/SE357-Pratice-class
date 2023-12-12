@@ -15,13 +15,13 @@ rectangle "Use Cases" {
   usecase "View Progress Report" as UC9
 }
 
-Student --> UC1
-Student --> UC2
-Student --> UC3
-Student --> UC4
-Student --> UC5
-Student --> UC6
-Student --> UC7
-Student --> UC8
-Student --> UC9
+Student -- UC1
+Student -- UC2
+Student -- UC3
+Student -- UC4
+Student -- UC5
+Student -- UC6
+Student -- UC7
+Student -- UC8
+Student -- UC9
 @enduml

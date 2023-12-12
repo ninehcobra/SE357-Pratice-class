@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Intructor as "Intructor"
+
+rectangle "Use Cases" {
+  usecase "Log In" as UC1
+  usecase "Log Out" as UC2
+  usecase "View Course List" as UC3
+  usecase "Create Course" as UC4
+  usecase "Edit Course Information" as UC5
+  usecase "Delete Course" as UC6
+  usecase "Manage Enrollments" as UC7
+  usecase "Manage Assignments" as UC8
+  usecase "Grade Assignments" as UC9
+   usecase "View Student Progress" as UC10
+}
+
+Intructor -- UC1
+Intructor -- UC2
+Intructor -- UC3
+Intructor -- UC4
+Intructor -- UC5
+Intructor -- UC6
+Intructor -- UC7
+Intructor -- UC8
+Intructor -- UC9
+Intructor -- UC10
+@enduml

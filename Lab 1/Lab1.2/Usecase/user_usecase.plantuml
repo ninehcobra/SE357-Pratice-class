@@ -16,15 +16,15 @@ rectangle "Use Cases" {
   usecase "Log Out" as LogOut
 }
 
-User --> Register
-User --> LogIn
-User --> BrowseCourses
-User --> ViewCourseDetails
-User --> EnrollInCourse
-User --> AccessLectures
-User --> SubmitAssignments
-User --> TakeQuizzes
-User --> TrackProgress
-User --> LogOut
+User -- Register
+User -- LogIn
+User -- BrowseCourses
+User -- ViewCourseDetails
+User -- EnrollInCourse
+User -- AccessLectures
+User -- SubmitAssignments
+User -- TakeQuizzes
+User -- TrackProgress
+User -- LogOut
 
 @enduml
