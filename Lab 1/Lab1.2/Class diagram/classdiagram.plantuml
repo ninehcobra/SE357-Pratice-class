@@ -1,89 +1,148 @@
 @startuml
-!define ENTITY class
-!define INTERFACE interface
 
-PACKAGE "Online Learning System" {
+!define TABLE class
 
-    ENTITY User {
-        + userId: String
-        + username: String
-        + password: String
-        + email: String
-        + register()
-        + login()
-        + viewCourses()
-    }
+!define PRIMARY_KEY_FIELD "{field} <<PK>>"
+!define FOREIGN_KEY_FIELD "{field} <<FK>>"
 
-    ENTITY Course {
-        + courseId: String
-        + courseName: String
-        + description: String
-        + enrollStudent(user: User)
-        + getCourseMaterials()
-        + submitAssignment(user: User, assignment: Assignment)
-    }
+!define OWNER_ID "{field} ownerId"
+!define BLOG_ID "{field} blogId"
+!define COMMENT_ID "{field} commentId"
+!define COURSE_ID "{field} courseId"
+!define GROUP_ID "{field} groupId"
+!define CHAPTER_ID "{field} chapterId"
+!define USER_ID "{field} userId"
+!define ROLE_ID "{field} roleId"
 
-    ENTITY Instructor {
-        + instructorId: String
-        + name: String
-        + createCourse(course: Course)
-        + gradeAssignment(assignment: Assignment, grade: String)
-    }
+!define INTEGER "INTEGER"
+!define STRING "STRING"
+!define BOOLEAN "BOOLEAN"
+!define TEXT "TEXT"
+!define JSON "JSON"
 
-    ENTITY Assignment {
-        + assignmentId: String
-        + title: String
-        + description: String
-        + dueDate: Date
-        + submittedBy: User
-        + grade: String
-        + submit()
-    }
+TABLE Blog {
+    {PRIMARY_KEY_FIELD} ownerId: {INTEGER}
+    title: {STRING}
+    description: {STRING}
+    thumbnail: {STRING}
+    contentHTML: {TEXT}
+    contentMarkdown: {TEXT}
+    + createComment(content: {STRING}): Comment
+    + editContent(newContent: {TEXT})
+    + deleteComment(commentId: {INTEGER})
+}
 
-    ENTITY ForumPost {
-        + postId: String
-        + content: String
-        + author: User
-        + upvote()
-        + downvote()
-    }
+TABLE Category {
+    {PRIMARY_KEY_FIELD} id: {INTEGER}
+    name: {STRING}
+    + getCourseList(): List<Course>
+}
 
-    ENTITY Admin {
-        + adminId: String
-        + manageUsers()
-        + manageCourses()
-        + viewReports()
-    }
+TABLE Chapter {
+    {PRIMARY_KEY_FIELD} id: {INTEGER}
+    title: {STRING}
+    description: {STRING}
+    videoUrl: {STRING}
+    position: {INTEGER}
+    isPublished: {BOOLEAN}
+    isFree: {BOOLEAN}
+    courseId: {INTEGER}
+    + markAsCompleted(userId: {INTEGER})
+    + publishChapter(): void
+}
 
-    ENTITY Payment {
-        + paymentId: String
-        + amount: Double
-        + date: Date
-        + processPayment(user: User)
-    }
+TABLE Comment {
+    {PRIMARY_KEY_FIELD} ownerId: {INTEGER}
+    {FOREIGN_KEY_FIELD} blogId: {INTEGER}
+    {FOREIGN_KEY_FIELD} commentId: {INTEGER}
+    content: {STRING}
+    + reply(content: {STRING}): Comment
+    + editContent(newContent: {STRING})
+}
 
-    ENTITY Badge {
-        + badgeId: String
-        + name: String
-        + description: String
-        + awardBadge(user: User)
-    }
+TABLE Course {
+    {PRIMARY_KEY_FIELD} id: {INTEGER}
+    title: {STRING}
+    description: {STRING}
+    {FOREIGN_KEY_FIELD} ownerId: {INTEGER}
+    isPublished: {BOOLEAN}
+    newPrice: {INTEGER}
+    oldPrice: {INTEGER}
+    thumbnail: {STRING}
+    {FOREIGN_KEY_FIELD} categoryId: {INTEGER}
+    attachments: {JSON}
+    + enrollUser(userId: {INTEGER})
+    + getChapterList(): List<Chapter>
+    + updateCourseInfo(newTitle: {STRING}, newDescription: {STRING})
+}
 
-    User --|{ Course : Enrolls
-    User --|{ Assignment : Submits
-    User --|{ ForumPost : Creates
-    User --|{ Payment : Makes
-    User --|{ Badge : Earns
+TABLE Group {
+    {PRIMARY_KEY_FIELD} id: {INTEGER}
+    name: {STRING}
+    description: {STRING}
+ 
+}
 
-    Admin --|{ User : Manages
-    Admin --|{ Instructor : Manages
-    Admin --|{ Course : Manages
+TABLE GroupRole {
+    {PRIMARY_KEY_FIELD} id: {INTEGER}
+    {FOREIGN_KEY_FIELD} groupId: {INTEGER}
+    {FOREIGN_KEY_FIELD} roleId: {INTEGER}
+  
+}
 
-    Instructor --|{ Course : Teaches
-    Instructor --|{ Assignment : Grades
+TABLE Progress {
+    {FOREIGN_KEY_FIELD} userId: {INTEGER}
+    {FOREIGN_KEY_FIELD} chapterId: {INTEGER}
+    isCompleted: {BOOLEAN}
+    + updateProgressStatus(isCompleted: {BOOLEAN})
+}
 
-    Course --|{ ForumPost : Has
+TABLE Purchase {
+    {FOREIGN_KEY_FIELD} userId: {INTEGER}
+    {FOREIGN_KEY_FIELD} courseId: {INTEGER}
+    + getPurchaseDetails(): PurchaseDetails
 
 }
+
+TABLE Role {
+    {PRIMARY_KEY_FIELD} id: {INTEGER}
+    url: {STRING}
+    description: {STRING}
+}
+
+TABLE User {
+    {PRIMARY_KEY_FIELD} id: {INTEGER}
+    name: {STRING}
+    email: {STRING}
+    password: {STRING}
+    address: {STRING}
+    phoneNumber: {STRING}
+    {FOREIGN_KEY_FIELD} groupId: {INTEGER}
+    avatar: {STRING}
+    gender: {STRING}
+    + createBlog(title: {STRING}, content: {TEXT}): Blog
+    + changePassword(newPassword: {STRING})
+    + updateProfileInfo(newName: {STRING}, newAddress: {STRING}, newPhoneNumber: {STRING}, newAvatar: {STRING})
+}
+
+
+Category --|{ Course
+
+Group --|{ GroupRole
+
+Purchase --|{ Course
+User --|{ Progress
+Course --|{ Chapter
+
+User --|{ Comment
+User --|{ Blog
+
+Group --o{ User : Members
+Blog --o{ Comment : Comments
+Chapter --o{ Progress : Progress
+
+User --o{ Purchase : Purchases
+
+GroupRole --o{ Role : Roles
 
 @enduml
